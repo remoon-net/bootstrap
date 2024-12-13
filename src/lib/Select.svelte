@@ -4,7 +4,12 @@
 	const {
 		options,
 		values = $bindable([]),
-	}: { options: ({ value: string; name: string } | string)[]; values?: string[] } = $props()
+		class: className = 'form-control',
+	}: {
+		options: ({ value: string; name: string } | string)[]
+		values?: string[]
+		class: string
+	} = $props()
 	let names = $derived.by(() => {
 		return options.reduce(
 			(t, item) => {
@@ -33,7 +38,7 @@
 </script>
 
 <div class="dropdown">
-	<div class="form-control" data-bs-toggle="dropdown" use:dropdown={{ autoClose: 'outside' }}>
+	<div class={className} data-bs-toggle="dropdown" use:dropdown={{ autoClose: 'outside' }}>
 		{#if values.length === 0}
 			<button class="btn btn-sm my-1 me-1 btn-outline-secondary"> 请选择 </button>
 		{:else}
