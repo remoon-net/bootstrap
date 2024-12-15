@@ -5,10 +5,12 @@
 		options,
 		values = $bindable([]),
 		class: className = 'form-control',
+		expand = false,
 	}: {
 		options: ({ value: string; name: string } | string)[]
 		values?: string[]
 		class?: string
+		expand?: boolean
 	} = $props()
 	let names = $derived.by(() => {
 		return options.reduce(
@@ -37,19 +39,8 @@
 	})
 </script>
 
-<div class="dropdown">
-	<div class={className} data-bs-toggle="dropdown" use:dropdown={{ autoClose: 'outside' }}>
-		{#if values.length === 0}
-			<button class="btn btn-sm my-1 me-1 btn-outline-secondary"> 请选择 </button>
-		{:else}
-			{#each values as v}
-				<button class="btn btn-sm my-1 me-1 btn-outline-secondary">
-					{names[v]}
-				</button>
-			{/each}
-		{/if}
-	</div>
-	<ul class="dropdown-menu w-100">
+{#snippet menu()}
+	<ul class="dropdown-menu w-100" class:expand>
 		{#each displayOptions as opt}
 			{@const selected = opt.selected !== -1}
 			<li>
@@ -72,4 +63,30 @@
 			</li>
 		{/each}
 	</ul>
-</div>
+{/snippet}
+
+{#if expand}
+	{@render menu()}
+{:else}
+	<div class="dropdown">
+		<div class={className} data-bs-toggle="dropdown" use:dropdown={{ autoClose: 'outside' }}>
+			{#if values.length === 0}
+				<button class="btn btn-sm my-1 me-1 btn-outline-secondary"> 请选择 </button>
+			{:else}
+				{#each values as v}
+					<button class="btn btn-sm my-1 me-1 btn-outline-secondary">
+						{names[v]}
+					</button>
+				{/each}
+			{/if}
+		</div>
+		{@render menu()}
+	</div>
+{/if}
+
+<style>
+	.expand {
+		position: static;
+		display: block;
+	}
+</style>

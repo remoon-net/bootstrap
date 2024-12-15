@@ -9,5 +9,10 @@
 	<p>
 		Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation
 	</p>
-	<Select options={['1', '2', '3', '4']} bind:values></Select>
+	<div class="my-3">
+		<Select options={['1', '2', '3', '4']} bind:values></Select>
+	</div>
+	<div class="my-3">
+		<Select options={['1', '2', '3', '4']} bind:values expand></Select>
+	</div>
 </div>
