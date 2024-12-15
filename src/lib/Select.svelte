@@ -8,7 +8,7 @@
 	}: {
 		options: ({ value: string; name: string } | string)[]
 		values?: string[]
-		class: string
+		class?: string
 	} = $props()
 	let names = $derived.by(() => {
 		return options.reduce(
