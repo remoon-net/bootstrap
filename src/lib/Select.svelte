@@ -45,6 +45,7 @@
 			{@const selected = opt.selected !== -1}
 			<li>
 				<button
+					type="button"
 					class="dropdown-item"
 					class:active={selected}
 					onclick={() => {
