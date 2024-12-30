@@ -7,12 +7,14 @@
 		class: className = 'form-control',
 		expand = false,
 		disabled = false,
+		placeholder = '请选择',
 	}: {
 		options: ({ value: string; name: string } | string)[]
 		values?: string[]
 		class?: string
 		expand?: boolean
 		disabled?: boolean
+		placeholder?: string
 	} = $props()
 	let names = $derived.by(() => {
 		return options.reduce(
@@ -80,10 +82,12 @@
 			use:dropdown={{ autoClose: 'outside' }}
 		>
 			{#if values.length === 0}
-				<button class="btn btn-sm my-1 me-1 btn-outline-secondary" {disabled}> 请选择 </button>
+				<button type="button" class="btn btn-sm my-1 me-1 btn-outline-secondary" {disabled}>
+					{placeholder}
+				</button>
 			{:else}
 				{#each values as v}
-					<button class="btn btn-sm my-1 me-1 btn-outline-secondary" {disabled}>
+					<button type="button" class="btn btn-sm my-1 me-1 btn-outline-secondary" {disabled}>
 						{names[v]}
 					</button>
 				{/each}
