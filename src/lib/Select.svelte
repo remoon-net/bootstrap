@@ -75,7 +75,7 @@
 	<div class="dropdown">
 		<div
 			class={className}
-			class:{disabled}
+			class:disabled
 			data-bs-toggle="dropdown"
 			use:dropdown={{ autoClose: 'outside' }}
 		>
