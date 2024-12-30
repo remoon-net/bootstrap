@@ -6,11 +6,13 @@
 		values = $bindable([]),
 		class: className = 'form-control',
 		expand = false,
+		disabled = false,
 	}: {
 		options: ({ value: string; name: string } | string)[]
 		values?: string[]
 		class?: string
 		expand?: boolean
+		disabled?: boolean
 	} = $props()
 	let names = $derived.by(() => {
 		return options.reduce(
@@ -48,6 +50,7 @@
 					type="button"
 					class="dropdown-item"
 					class:active={selected}
+					{disabled}
 					onclick={() => {
 						if (opt.selected !== -1) {
 							values.splice(opt.selected, 1)
@@ -70,12 +73,17 @@
 	{@render menu()}
 {:else}
 	<div class="dropdown">
-		<div class={className} data-bs-toggle="dropdown" use:dropdown={{ autoClose: 'outside' }}>
+		<div
+			class={className}
+			class:{disabled}
+			data-bs-toggle="dropdown"
+			use:dropdown={{ autoClose: 'outside' }}
+		>
 			{#if values.length === 0}
-				<button class="btn btn-sm my-1 me-1 btn-outline-secondary"> 请选择 </button>
+				<button class="btn btn-sm my-1 me-1 btn-outline-secondary" {disabled}> 请选择 </button>
 			{:else}
 				{#each values as v}
-					<button class="btn btn-sm my-1 me-1 btn-outline-secondary">
+					<button class="btn btn-sm my-1 me-1 btn-outline-secondary" {disabled}>
 						{names[v]}
 					</button>
 				{/each}
