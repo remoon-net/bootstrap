@@ -1,5 +1,8 @@
 <script>
 	import '../app.scss'
+	import Snackbar from '$lib/Snackbar.svelte'
 </script>
 
-<slot></slot>
+<Snackbar>
+	<slot></slot>
+</Snackbar>

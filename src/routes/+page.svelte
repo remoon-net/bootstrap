@@ -2,6 +2,11 @@
 	import Select from '$lib/Select.svelte'
 	import { modal } from '$lib/actions/modal.js'
 	let values = $state(['2'])
+
+	import { getSnackbarShow } from '$lib/Snackbar.svelte'
+
+	const showSnackbar = getSnackbarShow()
+	let count = $state(0)
 </script>
 
 <div class="container">
@@ -17,6 +22,15 @@
 		<Select options={['1', '2', '3', '4']} bind:values expand></Select>
 	</div>
 	<a href="#modal" class="btn btn-outline-primary" data-bs-toggle="modal">modal</a>
+	<button
+		type="button"
+		class="btn btn-outline-primary"
+		onclick={() => {
+			showSnackbar({ msg: `hello world ${count++}` })
+		}}
+	>
+		show snackbar
+	</button>
 </div>
 
 <div class="modal fade" id="modal" tabindex="-1" use:modal>
