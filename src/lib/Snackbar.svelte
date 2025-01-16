@@ -24,10 +24,8 @@
 				}
 			}
 			if (toasts.size >= 3) {
-				for (let [k] of toasts) {
-					toasts.delete(k)
-					break
-				}
+				let item = toasts.keys().next()
+				toasts.delete(item.value!)
 			}
 			toasts.set(id, item)
 		}
@@ -42,7 +40,7 @@
 
 	setContext(key, toasts)
 
-	import { fly } from 'svelte/transition'
+	import { blur, fly, scale } from 'svelte/transition'
 </script>
 
 <div class="toast-container top-0 start-50 translate-middle-x mt-5">
@@ -52,7 +50,7 @@
 			role="alert"
 			aria-live="assertive"
 			aria-atomic="true"
-			in:fly={{ y: -200 }}
+			in:blur
 			out:fly={{ y: 50 }}
 			onintroend={() => setTimeout(() => toasts.delete(k), 2000)}
 		>
