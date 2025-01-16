@@ -4,12 +4,16 @@
 	let values = $state(['2'])
 
 	import { getSnackbarShow } from '$lib/Snackbar.svelte'
-
 	const showSnackbar = getSnackbarShow()
 	let count = $state(0)
+
+	import TopHeader from './top-header.svelte'
+	import LongBody from '$lib/LongBody.svelte'
 </script>
 
-<div class="container">
+<TopHeader></TopHeader>
+
+<div class="container my-4">
 	<h1>Welcome to your library project</h1>
 	<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
 	<p>
@@ -31,6 +35,9 @@
 	>
 		show snackbar
 	</button>
+	<div>
+		<LongBody></LongBody>
+	</div>
 </div>
 
 <div class="modal fade" id="modal" tabindex="-1" use:modal>
@@ -41,57 +48,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				modal body
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				end
+				<LongBody></LongBody>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
