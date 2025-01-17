@@ -43,7 +43,7 @@
 	import { blur, fly, scale } from 'svelte/transition'
 </script>
 
-<div class="toast-container top-0 start-50 translate-middle-x mt-5">
+<div class="toast-container top-0 start-50 translate-middle-x mt-5 position-fixed">
 	{#each Array.from(toasts).reverse() as [k, item] (k)}
 		<div
 			class="toast text-center show"
