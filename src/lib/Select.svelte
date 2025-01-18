@@ -44,7 +44,7 @@
 </script>
 
 {#snippet menu()}
-	<ul class="dropdown-menu w-100" class:expand>
+	<ul class="dropdown-menu w-100" class:expand class:shadow-lg={!expand}>
 		{#each displayOptions as opt}
 			{@const selected = opt.selected !== -1}
 			<li>

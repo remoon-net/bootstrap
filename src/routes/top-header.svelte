@@ -5,7 +5,7 @@
 </script>
 
 <!-- <div class="header-placeholder" style="height: {56}px;"></div> -->
-<header class="border-bottom">
+<header class="border-bottom shadow-sm">
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container">
 			<a class="navbar-brand" href="#">
