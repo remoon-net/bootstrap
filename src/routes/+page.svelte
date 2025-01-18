@@ -30,7 +30,22 @@
 		type="button"
 		class="btn btn-outline-primary"
 		onclick={() => {
-			showSnackbar({ msg: `hello world ${count++}` })
+			let c = count++
+			let role = undefined
+			if (false) {
+			} else if (0 === c % 6) {
+				role = 'primary'
+			} else if (0 === c % 5) {
+				role = 'success'
+			} else if (0 === c % 4) {
+				role = 'danger'
+			} else if (0 === c % 3) {
+				role = 'warning'
+			} else if (0 === c % 2) {
+				role = 'info'
+			}
+			// @ts-ignore
+			showSnackbar({ msg: `hello world ${c}`, role: role })
 		}}
 	>
 		show snackbar

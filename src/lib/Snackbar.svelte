@@ -6,29 +6,11 @@
 	export interface Item {
 		id?: string
 		msg: string
-		role?: string
+		role?: 'primary' | 'success' | 'danger' | 'warning' | 'info'
 	}
 
-	export function getSnackbarShow() {
-		const toasts: SvelteMap<string, Item> = getContext(key)
-		return (item: Item) => {
-			// @ts-ignore
-			let id: string = item.id
-			if (!id) {
-				for (const _ of [1, 2, 3]) {
-					let nid = uuidv4()
-					if (toasts.has(nid)) {
-						continue
-					}
-					id = nid
-				}
-			}
-			if (toasts.size >= 3) {
-				let item = toasts.keys().next()
-				toasts.delete(item.value!)
-			}
-			toasts.set(id, item)
-		}
+	export function getSnackbarShow(): (item: Item) => void {
+		return getContext(key)
 	}
 </script>
 
@@ -38,7 +20,18 @@
 
 	const toasts = new SvelteMap<string, Item>()
 
-	setContext(key, toasts)
+	function showSnackbar(item: Item) {
+		let id: string = item.id || uuidv4()
+		while (toasts.has(id)) {
+			id = uuidv4()
+		}
+		if (toasts.size >= 3) {
+			let item = toasts.keys().next()
+			toasts.delete(item.value!)
+		}
+		toasts.set(id, item)
+	}
+	setContext(key, showSnackbar)
 
 	import { blur, fly, scale } from 'svelte/transition'
 </script>
@@ -47,6 +40,11 @@
 	{#each Array.from(toasts).reverse() as [k, item] (k)}
 		<div
 			class="toast text-center show"
+			class:text-bg-primary={item.role === 'primary'}
+			class:text-bg-success={item.role === 'success'}
+			class:text-bg-danger={item.role === 'danger'}
+			class:text-bg-warning={item.role === 'warning'}
+			class:text-bg-info={item.role === 'info'}
 			role="alert"
 			aria-live="assertive"
 			aria-atomic="true"
