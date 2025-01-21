@@ -9,6 +9,10 @@
 
 	import TopHeader from './top-header.svelte'
 	import LongBody from '$lib/LongBody.svelte'
+	import { getAlert } from '$lib/Alert.svelte'
+	import { getPrompt } from '$lib/Prompt.svelte'
+	const alert = getAlert()
+	const prompt = getPrompt()
 </script>
 
 <TopHeader></TopHeader>
@@ -49,6 +53,31 @@
 		}}
 	>
 		show snackbar
+	</button>
+	<button
+		type="button"
+		class="btn btn-outline-primary"
+		onclick={() => {
+			alert('hello world').then((c) => {
+				alert(`你选择了${c}`)
+			})
+		}}
+	>
+		alert
+	</button>
+	<button
+		type="button"
+		class="btn btn-outline-primary"
+		onclick={() => {
+			prompt('提示词提示词', '默认值默认值').then((c) => {
+				if (c === null) {
+					return
+				}
+				alert(`你输入了: "${c}"`)
+			})
+		}}
+	>
+		prompt
 	</button>
 	<div>
 		<LongBody></LongBody>
