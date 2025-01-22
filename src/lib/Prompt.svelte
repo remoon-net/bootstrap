@@ -1,7 +1,7 @@
 <script lang="ts" module>
 	const key = Symbol('alert')
 	export function getPrompt() {
-		return getContext(key) as (msg: string, _defalut?: string) => Promise<boolean>
+		return getContext(key) as (msg: string, _defalut?: string) => Promise<string>
 	}
 </script>
 
