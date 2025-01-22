@@ -1,17 +1,8 @@
 <script>
 	import '../app.scss'
-	import Snackbar from '$lib/Snackbar.svelte'
-	import Alert from '$lib/Alert.svelte'
-	import Prompt from '$lib/Prompt.svelte'
-	import Confirm from '$lib/Confirm.svelte'
+	import App from '$lib/App.svelte'
 </script>
 
-<Snackbar>
-	<Confirm>
-		<Alert>
-			<Prompt>
-				<slot></slot>
-			</Prompt>
-		</Alert>
-	</Confirm>
-</Snackbar>
+<App>
+	<slot></slot>
+</App>
