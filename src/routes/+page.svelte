@@ -11,8 +11,10 @@
 	import LongBody from '$lib/LongBody.svelte'
 	import { getAlert } from '$lib/Alert.svelte'
 	import { getPrompt } from '$lib/Prompt.svelte'
+	import { getConfirm } from '$lib/Confirm.svelte'
 	const alert = getAlert()
 	const prompt = getPrompt()
+	const confirm = getConfirm()
 </script>
 
 <TopHeader></TopHeader>
@@ -58,9 +60,7 @@
 		type="button"
 		class="btn btn-outline-primary"
 		onclick={() => {
-			alert('hello world').then((c) => {
-				alert(`你选择了${c}`)
-			})
+			alert('hello world')
 		}}
 	>
 		alert
@@ -69,7 +69,18 @@
 		type="button"
 		class="btn btn-outline-primary"
 		onclick={() => {
-			prompt('提示词提示词', '默认值默认值').then((c) => {
+			Promise.resolve(confirm('hello world')).then((c) => {
+				alert(`你选择了${c}`)
+			})
+		}}
+	>
+		confirm
+	</button>
+	<button
+		type="button"
+		class="btn btn-outline-primary"
+		onclick={() => {
+			Promise.resolve(prompt('提示词提示词', '默认值默认值')).then((c) => {
 				if (c === null) {
 					return
 				}
