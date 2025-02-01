@@ -2,7 +2,7 @@ import { sveltekit } from '@sveltejs/kit/vite'
 import { defineConfig } from 'vite'
 import path from 'path'
 
-const faker = path.resolve('./bootstrap.faker.js')
+const faker = path.resolve('./faker.js')
 
 export default defineConfig({
 	plugins: [sveltekit()],

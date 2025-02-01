@@ -1,3 +1,31 @@
+# fix ssr
+
+```js
+import { sveltekit } from '@sveltejs/kit/vite'
+import { defineConfig } from 'vite'
+import path from 'path'
+
+const faker = path.resolve('./node_modules/@remoon.net/bootstrap/faker.js')
+
+export default defineConfig({
+	plugins: [sveltekit()],
+	resolve: {
+		alias: [
+			{
+				find: 'bootstrap',
+				replacement: path.resolve('./node_modules/bootstrap'),
+				customResolver(source, importer, options) {
+					if (options.ssr) {
+						return faker
+					}
+				},
+			},
+		],
+	},
+})
+
+```
+
 # create-svelte
 
 Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
