@@ -19,7 +19,7 @@
 		"dist",
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*",
-		"bootstrap.faker.js"
+		"faker.js"
 	],
 	"sideEffects": [
 		"**/*.css"
