@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.0] - 2025-02-02
+
+- 支持 ssr
+
 ## [0.1.0] - 2025-01-23
 
 - 添加: Snackbar, Alert, Confirm, Prompt
