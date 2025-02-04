@@ -15,7 +15,8 @@ export default defineConfig({
 				find: 'bootstrap',
 				replacement: path.resolve('./node_modules/bootstrap'),
 				customResolver(source, importer, options) {
-					if (options.ssr) {
+					// @ts-ignore
+					if (options.ssr && !source.endsWith('.scss')) {
 						return faker
 					}
 				},
