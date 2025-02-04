@@ -33,6 +33,7 @@
 	setContext(key, show)
 </script>
 
+<slot></slot>
 <form
 	onsubmit={(e) => {
 		e.preventDefault()
@@ -79,7 +80,6 @@
 		</div>
 	</div>
 </form>
-<slot></slot>
 
 <style>
 	.modal {

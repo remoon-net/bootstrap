@@ -36,6 +36,7 @@
 	import { blur, fly, scale } from 'svelte/transition'
 </script>
 
+<slot></slot>
 <div class="toast-container top-0 start-50 translate-middle-x mt-5 position-fixed">
 	{#each Array.from(toasts).reverse() as [k, item] (k)}
 		<div
@@ -56,4 +57,3 @@
 		</div>
 	{/each}
 </div>
-<slot></slot>

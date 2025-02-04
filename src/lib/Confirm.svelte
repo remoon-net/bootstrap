@@ -39,6 +39,7 @@
 	let confirmBtn = $state<HTMLElement>()
 </script>
 
+<slot></slot>
 <div
 	class="modal"
 	{id}
@@ -78,7 +79,6 @@
 		</div>
 	</div>
 </div>
-<slot></slot>
 
 <style>
 	.modal {
