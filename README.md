@@ -15,6 +15,10 @@ export default defineConfig({
 				find: 'bootstrap',
 				replacement: path.resolve('./node_modules/bootstrap'),
 				customResolver(source, importer, options) {
+					// 修复 scss 在 vite 6.0 导入出错的问题
+					if (source.endsWith('ss')) {
+						return
+					}
 					// @ts-ignore
 					if (options.ssr && !source.endsWith('.scss')) {
 						return faker
