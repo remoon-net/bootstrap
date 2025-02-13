@@ -4,6 +4,14 @@
 	"publishConfig": {
 		"access": "public"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/remoon-net/bootstrap.git"
+	},
+	"bugs": {
+		"url": "https://github.com/remoon-net/bootstrap/issues"
+	},
+	"homepage": "https://github.com/remoon-net/bootstrap#readme",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
