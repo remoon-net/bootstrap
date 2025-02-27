@@ -29,6 +29,17 @@
 		<Select options={['1', '2', '3', '4']} bind:values></Select>
 	</div>
 	<div class="my-3">
+		<Select
+			options={[
+				{ name: 'one', value: '1' },
+				{ name: 'two', value: '2' },
+				{ name: 'three', value: '3' },
+				{ name: 'four', value: '4' },
+			]}
+			bind:values
+		></Select>
+	</div>
+	<div class="my-3">
 		<Select options={['1', '2', '3', '4']} bind:values expand></Select>
 	</div>
 	<a href="#modal" class="btn btn-outline-primary" data-bs-toggle="modal">modal</a>

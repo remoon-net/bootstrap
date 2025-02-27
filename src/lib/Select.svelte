@@ -61,7 +61,7 @@
 						}
 					}}
 				>
-					{opt.value}
+					{opt.name}
 					{#if selected}
 						<i class="bi bi-check float-end"></i>
 					{/if}
