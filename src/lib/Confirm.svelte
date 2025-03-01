@@ -51,6 +51,12 @@
 	onshown.bs.modal={() => {
 		confirmBtn?.focus()
 	}}
+	onshow.bs.modal={() => {
+		document.body.classList.add('app-notify-open')
+	}}
+	onhidden.bs.modal={() => {
+		document.body.classList.remove('app-notify-open')
+	}}
 >
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -81,6 +87,9 @@
 </div>
 
 <style>
+	:global(body.app-notify-open .modal-backdrop:last-child) {
+		z-index: 1089;
+	}
 	.modal {
 		z-index: 1090;
 		transition-duration: 0.15s;

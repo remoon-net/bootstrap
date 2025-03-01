@@ -19,30 +19,7 @@
 
 <TopHeader></TopHeader>
 
-<div class="container my-4">
-	<h1>Welcome to your library project</h1>
-	<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-	<p>
-		Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation
-	</p>
-	<div class="my-3">
-		<Select options={['1', '2', '3', '4']} bind:values></Select>
-	</div>
-	<div class="my-3">
-		<Select
-			options={[
-				{ name: 'one', value: '1' },
-				{ name: 'two', value: '2' },
-				{ name: 'three', value: '3' },
-				{ name: 'four', value: '4' },
-			]}
-			bind:values
-		></Select>
-	</div>
-	<div class="my-3">
-		<Select options={['1', '2', '3', '4']} bind:values expand></Select>
-	</div>
-	<a href="#modal" class="btn btn-outline-primary" data-bs-toggle="modal">modal</a>
+{#snippet btns()}
 	<button
 		type="button"
 		class="btn btn-outline-primary"
@@ -101,6 +78,33 @@
 	>
 		prompt
 	</button>
+{/snippet}
+
+<div class="container my-4">
+	<h1>Welcome to your library project</h1>
+	<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
+	<p>
+		Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation
+	</p>
+	<div class="my-3">
+		<Select options={['1', '2', '3', '4']} bind:values></Select>
+	</div>
+	<div class="my-3">
+		<Select
+			options={[
+				{ name: 'one', value: '1' },
+				{ name: 'two', value: '2' },
+				{ name: 'three', value: '3' },
+				{ name: 'four', value: '4' },
+			]}
+			bind:values
+		></Select>
+	</div>
+	<div class="my-3">
+		<Select options={['1', '2', '3', '4']} bind:values expand></Select>
+	</div>
+	<a href="#modal" class="btn btn-outline-primary" data-bs-toggle="modal">modal in modal</a>
+	{@render btns()}
 	<div>
 		<LongBody></LongBody>
 	</div>
@@ -114,6 +118,9 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
+				<div>
+					{@render btns()}
+				</div>
 				<LongBody></LongBody>
 			</div>
 			<div class="modal-footer">
