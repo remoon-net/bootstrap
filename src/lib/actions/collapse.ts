@@ -1,5 +1,5 @@
 import type { Action } from 'svelte/action'
-import { Collapse } from 'bootstrap'
+import { Collapse } from '@remoon.net/bootstrap-fork'
 
 type Options = Partial<Collapse.Options>
 

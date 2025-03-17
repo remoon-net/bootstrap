@@ -1,5 +1,5 @@
 import type { Action } from 'svelte/action'
-import { Modal } from 'bootstrap'
+import { Modal } from '@remoon.net/bootstrap-fork'
 
 type Options = Partial<Modal.Options>
 

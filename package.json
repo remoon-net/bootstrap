@@ -42,16 +42,18 @@
 		}
 	},
 	"peerDependencies": {
-		"bootstrap": "^5.3.0",
+		"@remoon.net/bootstrap-fork": "^5.3.5",
 		"svelte": "^5.0.0"
 	},
 	"devDependencies": {
+		"@popperjs/core": "^2.11.8",
+		"@remoon.net/bootstrap-fork": "^5.3.6",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@types/bootstrap": "^5.2.10",
-		"bootstrap": "^5.3.3",
+		"@types/node": "^22.13.10",
 		"bootstrap-icons": "^1.11.3",
 		"prettier": "^3.3.2",
 		"prettier-plugin-svelte": "^3.2.6",

@@ -1,5 +1,5 @@
 import type { Action } from 'svelte/action'
-import { Tooltip } from 'bootstrap'
+import { Tooltip } from '@remoon.net/bootstrap-fork'
 
 type Options = Partial<Tooltip.Options>
 

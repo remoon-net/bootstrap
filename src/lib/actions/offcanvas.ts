@@ -1,5 +1,5 @@
 import type { Action } from 'svelte/action'
-import { Offcanvas } from 'bootstrap'
+import { Offcanvas } from '@remoon.net/bootstrap-fork'
 
 type Options = Partial<Offcanvas.Options>
 

@@ -6,7 +6,7 @@
 </script>
 
 <script lang="ts">
-	import { Modal } from 'bootstrap'
+	import { Modal } from '@remoon.net/bootstrap-fork'
 	import { modal } from './actions/modal.js'
 	import { getContext, setContext } from 'svelte'
 	let root = $state<HTMLElement>()

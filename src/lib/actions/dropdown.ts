@@ -1,5 +1,5 @@
 import type { Action } from 'svelte/action'
-import { Dropdown } from 'bootstrap'
+import { Dropdown } from '@remoon.net/bootstrap-fork'
 
 type Options = Partial<Dropdown.Options>
 
