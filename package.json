@@ -42,7 +42,7 @@
 		}
 	},
 	"peerDependencies": {
-		"@remoon.net/bootstrap-fork": "^5.3.5",
+		"@remoon.net/bootstrap-fork": "*",
 		"svelte": "^5.0.0"
 	},
 	"devDependencies": {
