@@ -6,4 +6,11 @@ export default defineConfig({
 	server: {
 		host: 'bootstrap.lo.remoon.net',
 	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				quietDeps: true,
+			},
+		},
+	},
 })
