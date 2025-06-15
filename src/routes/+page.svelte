@@ -86,6 +86,7 @@
 	<p>
 		Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation
 	</p>
+	<a href="/pages">pagination example</a>
 	<div class="my-3">
 		<Select options={['1', '2', '3', '4']} bind:values></Select>
 	</div>
