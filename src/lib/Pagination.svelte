@@ -47,7 +47,7 @@
 	import { page } from '$app/state'
 	import { resolveRoute } from '$app/paths'
 	import { tooltip } from './actions/tooltip.js'
-	let trailingSlash = !!getContext('trailingSlashKey')
+	let trailingSlash = !!getContext(trailingSlashKey)
 	let pageLink = $derived.by(() => {
 		return (p: number) => {
 			if (p === pagination.totalPages) {
