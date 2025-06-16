@@ -1,12 +1,12 @@
 <script lang="ts" module>
-	export interface Pagination {
+	export interface ResultPagination {
 		page: number
 		perPage: number
 		totalItems: number
 		totalPages: number
 	}
-	export function toPagination(a: Pagination): Pagination {
-		let p: Pagination = {
+	export function toPagination(a: ResultPagination): ResultPagination {
+		let p: ResultPagination = {
 			page: a.page,
 			perPage: a.perPage,
 			totalItems: a.totalItems,
@@ -37,7 +37,7 @@
 
 <script lang="ts">
 	interface Props {
-		pagination: Pagination
+		pagination: ResultPagination
 		role?: 'query' | 'params'
 		disabled?: boolean
 	}
